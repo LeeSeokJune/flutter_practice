@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:instagram/src/components/image_data.dart';
 import 'package:instagram/src/controller/bottom_nav_controller.dart';
+import 'package:instagram/src/pages/home.dart';
+import 'package:instagram/src/pages/search.dart';
 
 class App extends GetView<BottomNavController> {
   @override
@@ -10,12 +12,11 @@ class App extends GetView<BottomNavController> {
       onWillPop: controller.willPopAction,
       child: Obx(
         () => Scaffold(
-          appBar: AppBar(),
           body: IndexedStack(
             index: controller.pageIndex.value,
             children: [
-              Container(child: Center(child: Text('Home'))),
-              Container(child: Center(child: Text('Search'))),
+              const Home(),
+              const Search(),
               Container(child: Center(child: Text('Upload'))),
               Container(child: Center(child: Text('Activity'))),
               Container(child: Center(child: Text('Mypage'))),
